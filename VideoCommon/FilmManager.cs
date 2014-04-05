@@ -54,7 +54,7 @@ namespace VideoCommon
                 using (var comInsert = conVideo.CreateCommand())
                 {
                     comInsert.CommandType = CommandType.Text;
-                    comInsert.CommandText = "INSERT INTO Films (Titel, GenreNr, InVoorraad, UitVoorraad, Prijs, TotaalVerhuurd) VALUES (@Titel, @GenreNr, @InVoorraad, @UitVoorraad, @Prijs, @TotaalVerhuurd); select @@identity";
+					comInsert.CommandText = "INSERT INTO Films (Titel, GenreNr, InVoorraad, UitVoorraad, Prijs, TotaalVerhuurd) VALUES (@Titel, @GenreNr, @InVoorraad, @UitVoorraad, @Prijs, @TotaalVerhuurd); select last_insert_rowid()";
 
                     var parTitel = comInsert.CreateParameter();
                     parTitel.ParameterName = "@Titel";
